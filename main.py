@@ -1,3 +1,5 @@
+# This is the Baby Temperature app by Alon Bar Shalom. This app would allow those taking care of babies in the first days of their life,
+# when they are most sensitive to temperature changes, to keep track of their temperature measurements and make sure they are as safe as possible.
 from guizero import *
 from threading import Timer
 
@@ -83,7 +85,9 @@ def open_baby_list():
     exit_button = PushButton(baby_list_window, command=clear_list_window, text="Close")
     baby_list_window.show(wait=True)
     baby_list_window.focus()
-#This saves a new temperature added through clicking one of the babies in the list. In addition, warnings are given if necessary.
+
+
+# This saves a new temperature added through clicking one of the babies in the list. In addition, warnings are given if necessary.
 def save_temp():
     global current_baby, add_temp, babies, baby_list_window, baby_list, counter
     idx = babies.index(current_baby)
@@ -116,6 +120,7 @@ def save_temp():
     add_temp_check_window.hide()
 
 
+# This window allows the user to add a new temperature for their baby.
 def add_temp_check(x):
     global current_temp_box_add, add_temp_check_window, baby_id_check, list_id, current_baby, add_temp
     print(x)
@@ -139,6 +144,7 @@ def add_temp_check(x):
     save_new_temp = PushButton(add_temp_check_window, text="Save and close", command=save_temp)
 
 
+# This is the app's menu
 app = App(layout="auto", title="Baby Temperature app", bg="#f7ff00")
 # app.set_full_screen()
 main_title = Text(app, text="Baby temperature app", align="top", color="#7700C0", font="Green London", size=100)
